@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laundry Service Management System - Moulali</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div><h1>Laundry Service Management System</h1><p>Developed by Moulali</p></div></header>
+<nav><a href="#dashboard">Dashboard</a><a href="#customers">Customers</a><a href="#services">Services</a><a href="#orders">Orders</a><a href="#payments">Payments</a></nav>
+<main>
+<section id="dashboard" class="cards">
+  <article><span>Total Customers</span><strong id="customerCount">0</strong></article>
+  <article><span>Total Orders</span><strong id="orderCount">0</strong></article>
+  <article><span>Completed Orders</span><strong id="completedCount">0</strong></article>
+  <article><span>Total Payments</span><strong id="paymentTotal">₹0.00</strong></article>
+</section>
+<section id="customers" class="panel">
+  <h2>Add Customer</h2>
+  <form id="customerForm" class="form-grid">
+    <input name="name" placeholder="Customer name" required>
+    <input name="phone" placeholder="Phone number" required>
+    <input name="email" type="email" placeholder="Email">
+    <input name="address" placeholder="Address">
+    <button>Add Customer</button>
+  </form>
+  <div class="table-wrap"><table><thead><tr><th>ID</th><th>Name</th><th>Phone</th><th>Email</th><th>Address</th></tr></thead><tbody id="customersTable"></tbody></table></div>
+</section>
+<section id="services" class="panel">
+  <h2>Available Services</h2><div id="serviceList" class="service-list"></div>
+</section>
+<section id="orders" class="panel">
+  <h2>Create Laundry Order</h2>
+  <form id="orderForm" class="form-grid">
+    <select name="customer_id" id="customerSelect" required><option value="">Select customer</option></select>
+    <select name="service_id" id="serviceSelect" required><option value="">Select service</option></select>
+    <input name="clothes_weight" type="number" min="0.1" step="0.1" placeholder="Clothes weight (kg)" required>
+    <input name="order_date" type="date" required>
+    <input name="delivery_date" type="date" required>
+    <button>Create Order</button>
+  </form>
+  <div class="table-wrap"><table><thead><tr><th>Order</th><th>Customer</th><th>Service</th><th>Weight</th><th>Order date</th><th>Delivery</th><th>Status</th><th>Update</th></tr></thead><tbody id="ordersTable"></tbody></table></div>
+</section>
+<section id="payments" class="panel">
+  <h2>Record Payment</h2>
+  <form id="paymentForm" class="form-grid">
+    <select name="order_id" id="paymentOrderSelect" required><option value="">Select order</option></select>
+    <input name="amount" type="number" min="0.01" step="0.01" placeholder="Amount (₹)" required>
+    <input name="payment_date" type="date" required>
+    <select name="payment_method"><option>UPI</option><option>Cash</option><option>Card</option><option>Net Banking</option></select>
+    <select name="status"><option>Paid</option><option>Pending</option></select>
+    <button>Save Payment</button>
+  </form>
+  <div class="table-wrap"><table><thead><tr><th>Payment</th><th>Order</th><th>Amount</th><th>Date</th><th>Method</th><th>Status</th></tr></thead><tbody id="paymentsTable"></tbody></table></div>
+</section>
+<p id="message" role="status"></p>
+</main>
+<footer>© 2026 Laundry Service Management System | Moulali</footer>
+<script src="script.js"></script>
+</body></html>
